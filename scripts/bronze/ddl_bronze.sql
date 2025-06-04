@@ -28,7 +28,7 @@ CREATE TABLE bronze.crm_cust_info(
 	cst_key NVARCHAR(20),
 	cst_firstname NVARCHAR(50),
 	cst_lastname NVARCHAR(50),
-	cst_marital_status NCHAR(1),  -- 'S' ou 'M'
+	cst_marital_status NCHAR(5),  -- 'S' ou 'M'
 	cst_gndr NCHAR(1),            -- 'M' ou 'F'
 	cst_create_date DATE
 )
@@ -41,7 +41,7 @@ CREATE TABLE bronze.crm_prd_info(
     prd_key NVARCHAR(30),
     prd_nm NVARCHAR(100),
     prd_cost DECIMAL(10,2),           -- Custo pode ser decimal, com 2 casas decimais
-    prd_line CHAR(1),                 -- Linha do produto (ex: 'R' ou 'S')
+    prd_line CHAR(5),                 -- Linha do produto (ex: 'R' ou 'S')
     prd_start_dt DATE,
     prd_end_dt DATE
 )
