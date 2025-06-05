@@ -1,0 +1,17 @@
+SELECT
+      sd.[sls_ord_num],
+      dp.[product_key],
+      dc.[customer_key],
+      sd.[sls_order_dt],
+      sd.[sls_ship_dt],
+      sd.[sls_due_dt],
+      sd.[sls_sales],
+      sd.[sls_quantity],
+      sd.[sls_price],
+      sd.[dwh_create_date]
+FROM silver.crm_sales_details sd
+LEFT JOIN gold.dim_products dp
+        ON sd.sls_prd_key = dp.category_id
+LEFT JOIN gold.dim_customers dc
+        on sd.sls_cust_id = dc.customer_id
+
