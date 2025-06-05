@@ -3,7 +3,7 @@ BEGIN
 
     DECLARE @begin_time DATETIME, @end_tiME DATETIME 
 
-
+'
 
 	BEGIN TRY
 		
@@ -167,7 +167,11 @@ BEGIN
                 ELSE UPPER(TRIM(cid))                                                   -- só aplica TRIM e UPPER
             END AS cid_cleaned,
             bdate,
-            gen
+            CASE 
+                WHEN UPPER(TRIM(gen)) = 'F' THEN 'Female'
+                WHEN UPPER(TRIM(gen)) = 'M' THEN 'Male'
+                ELSE 'N/A'
+            END AS gen,
         FROM DataWarehouse.bronze.erp_cust_az12
 
 
